@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PDF API Rendering Test (PDFMonkey version)</title>
+  <!-- T1: external web font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+  <style>
+    /* T2: @page size, margins and margin boxes (running footer + page counter) */
+    @page {
+      size: A4;
+      margin: 20mm 16mm 22mm 16mm;
+      @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: Inter, sans-serif;
+        font-size: 9pt;
+        color: #64748b;
+      }
+    }
+
+    /* T3: CSS custom properties */
+    :root {
+      --brand: #4f46e5;
+      --brand-soft: #eef2ff;
+      --ink: #0f172a;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; margin: 0; }
+    h1 { font-weight: 800; font-size: 26pt; margin: 0; letter-spacing: -0.02em; }
+    h2 { font-size: 13pt; font-weight: 600; margin: 24px 0 8px; color: var(--brand); }
+    .test-id { font-size: 8pt; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* T4: linear gradient background (requires printBackground) */
+    .hero {
+      background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .hero .test-id { color: rgba(255,255,255,0.7); }
+
+    /* T5: CSS grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card {
+      background: var(--brand-soft);
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15); /* T6: box-shadow */
+    }
+    .card strong { display: block; font-size: 18pt; font-weight: 800; }
+
+    /* T7: table with repeating header across pages + rows that must not split */
+    table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+    thead { display: table-header-group; }
+    th { background: var(--ink); color: white; text-align: left; padding: 6px 8px; }
+    td { padding: 6px 8px; border-bottom: 1px solid #e2e8f0; }
+    tr { break-inside: avoid; page-break-inside: avoid; }
+    tbody tr:nth-child(even) td { background: #f8fafc; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* T8: forced page break */
+    .page-break { break-before: page; page-break-before: always; }
+
+    /* T9: block that must stay on one page */
+    .keep-together { break-inside: avoid; page-break-inside: avoid; border: 2px dashed var(--brand); border-radius: 8px; padding: 12px; }
+
+    .scripts { display: grid; grid-template-columns: 140px 1fr; gap: 6px 12px; }
+    .rtl { direction: rtl; text-align: right; }
+    .jp { font-family: "Noto Sans JP", sans-serif; }
+
+    /* T13: form controls */
+
+    .form-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: center; }
+    .form-row label { width: 120px; }
+    .form-row .checkbox-label { display: flex; align-items: center; gap: 8px; width: auto; }
+    /* PDFMonkey version: markers are not detected in a web font such as Inter, and PDFMonkey
+       leaves marker text visible outside the field, so the markers are set in tiny white Arial.
+       Each box reserves the field's size (w/h in the marker are points; 1pt = 1.333px), and the
+       marker is centred in the box, which is where PDFMonkey lines the field up best. */
+    .pdfmonkey-field { font-family: Arial, sans-serif; font-size: 2px; line-height: 1; color: #fff; white-space: nowrap; display: inline-flex; align-items: center; vertical-align: middle; }
+    .pdfmonkey-field.wide { width: 533px; height: 33px; }
+    .pdfmonkey-field.box { width: 16px; height: 16px; margin-right: 8px; }
+    .form-row input[type=text], .form-row select { flex: 1; padding: 6px; border: 1px solid #cbd5e1; border-radius: 4px; font: inherit; }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div>
+      <div class="test-id">T1 web font · T4 gradient</div>
+      <h1>Invoice #2026-1042</h1>
+      <div>Acme Ltd · Issued 11 Oct 2026</div>
+    </div>
+    <!-- T10: inline SVG -->
+    <svg width="72" height="72" viewBox="0 0 72 72" aria-label="logo">
+      <circle cx="36" cy="36" r="32" fill="none" stroke="white" stroke-width="6" />
+      <path d="M22 37 L32 47 L51 26" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </section>
+
+  <h2><span class="test-id">T5 grid · T6 shadow · T11 JavaScript</span><br />Summary</h2>
+  <div class="grid">
+    <div class="card">Subtotal<strong id="subtotal">—</strong></div>
+    <div class="card">VAT 24%<strong id="vat">—</strong></div>
+    <div class="card">Total due<strong id="total">—</strong></div>
+  </div>
+  <!-- T11 passes if the three cards show amounts instead of dashes -->
+
+  <h2><span class="test-id">T12 canvas chart drawn by JavaScript</span><br />Monthly usage</h2>
+  <canvas id="chart" width="700" height="180" style="width:100%;height:auto;"></canvas>
+
+  <h2><span class="test-id">T13 form controls</span><br />Customer details</h2>
+  <!-- PDFMonkey version: fillable fields come from PDFMonkey's form markers (template setting use_forms), not HTML inputs.
+       The markers must be in a standard font; PDFMonkey does not detect them in Inter. -->
+  <div class="form-row"><label>Full name</label><span class="pdfmonkey-field wide">[% data_form_field_text_fullname_w400_h25 %]</span></div>
+  <div class="form-row"><label>Country</label><span class="pdfmonkey-field wide">[% data_form_field_dropdown_country_w400_h25_options[Greece,France,United Kingdom] %]</span></div>
+  <div class="form-row"><label class="checkbox-label"><span class="pdfmonkey-field box">[% data_form_field_checkbox_acceptterms_w12_h12 %]</span><span>Accept terms</span></label></div>
+
+  <h2 class="page-break"><span class="test-id">T8 forced page break · T7 repeating table header · T2 page counter</span><br />Line items</h2>
+  <table>
+    <thead><tr><th>#</th><th>Description</th><th>Qty</th><th class="num">Unit</th><th class="num">Amount</th></tr></thead>
+    <tbody id="rows">
+      <tr><td>1</td><td>API conversions — batch 1</td><td>1</td><td class="num">€12.50</td><td class="num" data-amount="12.5">€12.50</td></tr>
+      <tr><td>2</td><td>Signature envelope — batch 2</td><td>2</td><td class="num">€4.00</td><td class="num" data-amount="8">€8.00</td></tr>
+      <tr><td>3</td><td>Storage (GB) — batch 3</td><td>3</td><td class="num">€0.80</td><td class="num" data-amount="2.4">€2.40</td></tr>
+      <tr><td>4</td><td>Priority support — batch 4</td><td>4</td><td class="num">€30.00</td><td class="num" data-amount="120">€120.00</td></tr>
+      <tr><td>5</td><td>API conversions — batch 5</td><td>5</td><td class="num">€12.50</td><td class="num" data-amount="62.5">€62.50</td></tr>
+      <tr><td>6</td><td>Signature envelope — batch 6</td><td>6</td><td class="num">€4.00</td><td class="num" data-amount="24">€24.00</td></tr>
+      <tr><td>7</td><td>Storage (GB) — batch 7</td><td>7</td><td class="num">€0.80</td><td class="num" data-amount="5.6">€5.60</td></tr>
+      <tr><td>8</td><td>Priority support — batch 8</td><td>1</td><td class="num">€30.00</td><td class="num" data-amount="30">€30.00</td></tr>
+      <tr><td>9</td><td>API conversions — batch 9</td><td>2</td><td class="num">€12.50</td><td class="num" data-amount="25">€25.00</td></tr>
+      <tr><td>10</td><td>Signature envelope — batch 10</td><td>3</td><td class="num">€4.00</td><td class="num" data-amount="12">€12.00</td></tr>
+      <tr><td>11</td><td>Storage (GB) — batch 11</td><td>4</td><td class="num">€0.80</td><td class="num" data-amount="3.2">€3.20</td></tr>
+      <tr><td>12</td><td>Priority support — batch 12</td><td>5</td><td class="num">€30.00</td><td class="num" data-amount="150">€150.00</td></tr>
+      <tr><td>13</td><td>API conversions — batch 13</td><td>6</td><td class="num">€12.50</td><td class="num" data-amount="75">€75.00</td></tr>
+      <tr><td>14</td><td>Signature envelope — batch 14</td><td>7</td><td class="num">€4.00</td><td class="num" data-amount="28">€28.00</td></tr>
+      <tr><td>15</td><td>Storage (GB) — batch 15</td><td>1</td><td class="num">€0.80</td><td class="num" data-amount="0.8">€0.80</td></tr>
+      <tr><td>16</td><td>Priority support — batch 16</td><td>2</td><td class="num">€30.00</td><td class="num" data-amount="60">€60.00</td></tr>
+      <tr><td>17</td><td>API conversions — batch 17</td><td>3</td><td class="num">€12.50</td><td class="num" data-amount="37.5">€37.50</td></tr>
+      <tr><td>18</td><td>Signature envelope — batch 18</td><td>4</td><td class="num">€4.00</td><td class="num" data-amount="16">€16.00</td></tr>
+      <tr><td>19</td><td>Storage (GB) — batch 19</td><td>5</td><td class="num">€0.80</td><td class="num" data-amount="4">€4.00</td></tr>
+      <tr><td>20</td><td>Priority support — batch 20</td><td>6</td><td class="num">€30.00</td><td class="num" data-amount="180">€180.00</td></tr>
+      <tr><td>21</td><td>API conversions — batch 21</td><td>7</td><td class="num">€12.50</td><td class="num" data-amount="87.5">€87.50</td></tr>
+      <tr><td>22</td><td>Signature envelope — batch 22</td><td>1</td><td class="num">€4.00</td><td class="num" data-amount="4">€4.00</td></tr>
+      <tr><td>23</td><td>Storage (GB) — batch 23</td><td>2</td><td class="num">€0.80</td><td class="num" data-amount="1.6">€1.60</td></tr>
+      <tr><td>24</td><td>Priority support — batch 24</td><td>3</td><td class="num">€30.00</td><td class="num" data-amount="90">€90.00</td></tr>
+      <tr><td>25</td><td>API conversions — batch 25</td><td>4</td><td class="num">€12.50</td><td class="num" data-amount="50">€50.00</td></tr>
+      <tr><td>26</td><td>Signature envelope — batch 26</td><td>5</td><td class="num">€4.00</td><td class="num" data-amount="20">€20.00</td></tr>
+      <tr><td>27</td><td>Storage (GB) — batch 27</td><td>6</td><td class="num">€0.80</td><td class="num" data-amount="4.8">€4.80</td></tr>
+      <tr><td>28</td><td>Priority support — batch 28</td><td>7</td><td class="num">€30.00</td><td class="num" data-amount="210">€210.00</td></tr>
+      <tr><td>29</td><td>API conversions — batch 29</td><td>1</td><td class="num">€12.50</td><td class="num" data-amount="12.5">€12.50</td></tr>
+      <tr><td>30</td><td>Signature envelope — batch 30</td><td>2</td><td class="num">€4.00</td><td class="num" data-amount="8">€8.00</td></tr>
+      <tr><td>31</td><td>Storage (GB) — batch 31</td><td>3</td><td class="num">€0.80</td><td class="num" data-amount="2.4">€2.40</td></tr>
+      <tr><td>32</td><td>Priority support — batch 32</td><td>4</td><td class="num">€30.00</td><td class="num" data-amount="120">€120.00</td></tr>
+      <tr><td>33</td><td>API conversions — batch 33</td><td>5</td><td class="num">€12.50</td><td class="num" data-amount="62.5">€62.50</td></tr>
+      <tr><td>34</td><td>Signature envelope — batch 34</td><td>6</td><td class="num">€4.00</td><td class="num" data-amount="24">€24.00</td></tr>
+      <tr><td>35</td><td>Storage (GB) — batch 35</td><td>7</td><td class="num">€0.80</td><td class="num" data-amount="5.6">€5.60</td></tr>
+      <tr><td>36</td><td>Priority support — batch 36</td><td>1</td><td class="num">€30.00</td><td class="num" data-amount="30">€30.00</td></tr>
+      <tr><td>37</td><td>API conversions — batch 37</td><td>2</td><td class="num">€12.50</td><td class="num" data-amount="25">€25.00</td></tr>
+      <tr><td>38</td><td>Signature envelope — batch 38</td><td>3</td><td class="num">€4.00</td><td class="num" data-amount="12">€12.00</td></tr>
+      <tr><td>39</td><td>Storage (GB) — batch 39</td><td>4</td><td class="num">€0.80</td><td class="num" data-amount="3.2">€3.20</td></tr>
+      <tr><td>40</td><td>Priority support — batch 40</td><td>5</td><td class="num">€30.00</td><td class="num" data-amount="150">€150.00</td></tr>
+      <tr><td>41</td><td>API conversions — batch 41</td><td>6</td><td class="num">€12.50</td><td class="num" data-amount="75">€75.00</td></tr>
+      <tr><td>42</td><td>Signature envelope — batch 42</td><td>7</td><td class="num">€4.00</td><td class="num" data-amount="28">€28.00</td></tr>
+      <tr><td>43</td><td>Storage (GB) — batch 43</td><td>1</td><td class="num">€0.80</td><td class="num" data-amount="0.8">€0.80</td></tr>
+      <tr><td>44</td><td>Priority support — batch 44</td><td>2</td><td class="num">€30.00</td><td class="num" data-amount="60">€60.00</td></tr>
+      <tr><td>45</td><td>API conversions — batch 45</td><td>3</td><td class="num">€12.50</td><td class="num" data-amount="37.5">€37.50</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="test-id">T9 keep-together block</span><br />Payment terms</h2>
+  <div class="keep-together">
+    <p>This box should never be split across two pages. If you see its border broken at a page edge, the renderer ignored <code>break-inside: avoid</code>.</p>
+    <p>Bank transfer within 30 days. Please include the invoice number as the payment reference. Late payments incur a 2% monthly fee.</p>
+    <p>Questions about this invoice? Contact billing@example.com.</p>
+  </div>
+
+  <h2><span class="test-id">T14 Unicode, RTL and emoji</span><br />International text</h2>
+  <div class="scripts">
+    <div>Greek</div><div>Τιμολόγιο πληρωμής για υπηρεσίες λογισμικού</div>
+    <div>Japanese</div><div class="jp">ソフトウェアサービスの請求書</div>
+    <div>Arabic (RTL)</div><div class="rtl">فاتورة خدمات البرمجيات</div>
+    <div>Emoji</div><div>✅ 📄 🚀 💶</div>
+    <div>Ligatures/symbols</div><div>office · fi fl · € £ ¥ · ½ ≤ ≥ → ©</div>
+  </div>
+
+  <script>
+    // T11: compute totals from the line items at render time
+    const fmt = (n) => "€" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const subtotal = Array.from(document.querySelectorAll("[data-amount]"))
+      .reduce((sum, cell) => sum + Number(cell.dataset.amount), 0);
+    document.getElementById("subtotal").textContent = fmt(subtotal);
+    document.getElementById("vat").textContent = fmt(subtotal * 0.24);
+    document.getElementById("total").textContent = fmt(subtotal * 1.24);
+
+    // T12: draw a bar chart on canvas
+    const c = document.getElementById("chart");
+    const ctx = c.getContext("2d");
+    const data = [320, 410, 380, 520, 610, 580, 700, 760, 690, 820, 900, 980];
+    const max = Math.max(...data);
+    const bw = c.width / data.length;
+    data.forEach((v, i) => {
+      const h = (v / max) * (c.height - 24);
+      ctx.fillStyle = i === data.length - 1 ? "#9333ea" : "#4f46e5";
+      ctx.fillRect(i * bw + 6, c.height - h - 16, bw - 12, h);
+      ctx.fillStyle = "#64748b";
+      ctx.font = "11px sans-serif";
+      ctx.fillText(["J","F","M","A","M","J","J","A","S","O","N","D"][i], i * bw + bw / 2 - 3, c.height - 2);
+    });
+  </script>
+</body>
+</html>

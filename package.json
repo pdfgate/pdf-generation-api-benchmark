@@ -1,0 +1,14 @@
+{
+  "name": "pdf-generation-api-benchmark",
+  "private": true,
+  "description": "Same HTML, 12 PDF generation APIs, 14 rendering checks.",
+  "scripts": {
+    "bench": "node --env-file=.env run.mjs"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "optionalDependencies": {
+    "puppeteer": "^24.4.0"
+  }
+}

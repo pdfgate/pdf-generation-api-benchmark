@@ -1,0 +1,337 @@
+{
+  "pdfgate": {
+    "sizeKB": 227,
+    "msAll": [
+      1824,
+      1865,
+      1626,
+      1885,
+      1649,
+      2470,
+      1791,
+      1819,
+      1673,
+      1829,
+      3537,
+      2476,
+      2200,
+      2240,
+      2123,
+      2516,
+      2578,
+      2191,
+      2247,
+      2130,
+      1968,
+      1739,
+      1675,
+      1702,
+      1677
+    ],
+    "pages": 4,
+    "acroFormFields": 3,
+    "msAllNote": "All 25 timed production requests with form fields, 2026-10-11 and 2026-10-12",
+    "msWithoutFormFields": [
+      1869,
+      1664,
+      1376,
+      1481,
+      1482,
+      1794,
+      1433,
+      1327,
+      1565,
+      1322
+    ],
+    "msAverageWithoutFormFields": 1531,
+    "msAverage": 2057
+  },
+  "docraptor": {
+    "testedAt": "2026-10-12T09:46:13.771Z",
+    "mode": "production (1 request); timings from 5 free test-mode requests",
+    "sizeKB": 90,
+    "pages": 4,
+    "acroFormFields": 3,
+    "msAll": [
+      3806,
+      3969,
+      2090,
+      2900,
+      2844,
+      3847,
+      2916,
+      2673,
+      2504,
+      2629
+    ],
+    "testModeTestedAt": "2026-10-12T09:42:42.927Z",
+    "productionMs": 3781,
+    "msWithoutFormFields": [
+      3678,
+      2973,
+      2468,
+      2436,
+      2471
+    ],
+    "msAverageWithoutFormFields": 2805,
+    "msAverage": 3018
+  },
+  "puppeteer": {
+    "sizeKB": 381,
+    "msAll": [
+      3808,
+      3698,
+      2648,
+      2653,
+      2710
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "msAverage": 3103
+  },
+  "pdfshift": {
+    "testedAt": "2026-10-12T10:16:56.542Z",
+    "sizeKB": 271,
+    "msAll": [
+      1934,
+      2230,
+      1674,
+      1763,
+      1692
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ],
+    "msAverage": 1859
+  },
+  "pdfco": {
+    "testedAt": "2026-10-12T10:39:48.045Z",
+    "sizeKB": 262,
+    "msAverage": 10041,
+    "msAll": [
+      7133,
+      16000,
+      5524,
+      16147,
+      5399
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  },
+  "pdfmonkey": {
+    "testedAt": "2026-10-12T11:04:17.623Z",
+    "sizeKB": 227,
+    "msAverage": 9500,
+    "msAll": [
+      14572,
+      8452,
+      7647,
+      9113,
+      7717
+    ],
+    "pages": 4,
+    "acroFormFields": 3,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ],
+    "msWithoutFormFields": [
+      3618,
+      3976,
+      3755,
+      3652,
+      3630,
+      4131,
+      3758,
+      3226
+    ],
+    "msAverageWithoutFormFields": 3718,
+    "msWithFormFieldsAlternating": [
+      9095,
+      8820,
+      7511
+    ]
+  },
+  "api2pdf": {
+    "testedAt": "2026-10-12T11:09:29.627Z",
+    "sizeKB": 310,
+    "msAverage": 4191,
+    "msAll": [
+      4680,
+      3994,
+      4156,
+      4174,
+      3951
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ],
+    "reportedCost": 0.0007739555878912
+  },
+  "convertapi": {
+    "testedAt": "2026-10-12T11:15:42.316Z",
+    "sizeKB": 308,
+    "msAverage": 4288,
+    "msAll": [
+      5610,
+      4147,
+      2624,
+      4872,
+      4189
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  },
+  "cloudconvert": {
+    "testedAt": "2026-10-12T11:23:45.664Z",
+    "sizeKB": 289,
+    "msAverage": 1805,
+    "msAll": [
+      1695,
+      1882,
+      2297,
+      1584,
+      1568
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  },
+  "cloudlayer": {
+    "testedAt": "2026-10-12T11:28:50.160Z",
+    "sizeKB": 360,
+    "msAverage": 2108,
+    "msAll": [
+      2202,
+      2185,
+      2114,
+      2170,
+      1871
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  },
+  "pdfcrowd": {
+    "testedAt": "2026-10-12T11:35:03.656Z",
+    "sizeKB": 293,
+    "msAverage": 2919,
+    "msAll": [
+      2767,
+      2997,
+      3009,
+      2858,
+      2962
+    ],
+    "pages": 4,
+    "acroFormFields": 3,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ],
+    "msWithoutFormFields": [
+      3594,
+      3073,
+      2864,
+      2840,
+      2783
+    ],
+    "msAverageWithoutFormFields": 3031
+  },
+  "browserless": {
+    "testedAt": "2026-10-12T11:41:14.969Z",
+    "sizeKB": 319,
+    "msAverage": 3281,
+    "msAll": [
+      3528,
+      3535,
+      3050,
+      3234,
+      3059
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  },
+  "apitemplate": {
+    "testedAt": "2026-10-12T11:44:16.144Z",
+    "sizeKB": 312,
+    "msAverage": 3154,
+    "msAll": [
+      3890,
+      2920,
+      2981,
+      2845,
+      3133
+    ],
+    "pages": 4,
+    "acroFormFields": 0,
+    "bitmaps": [
+      [
+        "700x180"
+      ],
+      [],
+      [],
+      []
+    ]
+  }
+}
