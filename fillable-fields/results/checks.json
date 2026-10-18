@@ -1,0 +1,1325 @@
+{
+  "docraptor": {
+    "fields": [
+      {
+        "name": "Form1.full_name",
+        "page": 1,
+        "rect": [
+          164,
+          679,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": true,
+        "readonly": false
+      },
+      {
+        "name": "Form1.email",
+        "page": 1,
+        "rect": [
+          164,
+          656,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "jane@example.com",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "Form1.customer_id",
+        "page": 1,
+        "rect": [
+          164,
+          632,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "C-1042",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": true
+      },
+      {
+        "name": "Form1.seats",
+        "page": 1,
+        "rect": [
+          164,
+          609,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "Form1.start_date",
+        "page": 1,
+        "rect": [
+          164,
+          586,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "Form1.country",
+        "page": 1,
+        "rect": [
+          164,
+          555,
+          381,
+          22
+        ],
+        "kind": "dropdown",
+        "options": [
+          "Greece",
+          "France",
+          "Germany",
+          "Spain",
+          "United Kingdom"
+        ],
+        "selected": [
+          "fr"
+        ]
+      },
+      {
+        "name": "Form1.plan",
+        "page": 1,
+        "rect": [
+          73,
+          502,
+          11,
+          9
+        ],
+        "kind": "radio",
+        "options": [
+          "starter",
+          "pro",
+          "business"
+        ],
+        "selected": "pro",
+        "selectedIndex": 1,
+        "pages": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "Form1.notes",
+        "page": 1,
+        "rect": [
+          164,
+          437,
+          381,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "Form1.accept_terms",
+        "page": 1,
+        "rect": [
+          52,
+          384,
+          11,
+          9
+        ],
+        "kind": "checkbox",
+        "checked": true
+      },
+      {
+        "name": "Form1.newsletter",
+        "page": 1,
+        "rect": [
+          52,
+          361,
+          11,
+          9
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "Form1.portal_password",
+        "page": 2,
+        "rect": [
+          164,
+          725,
+          381,
+          13
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "Form1.comments",
+        "page": 2,
+        "rect": [
+          164,
+          662,
+          381,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      }
+    ],
+    "matched": {
+      "full_name": "Form1.full_name",
+      "email": "Form1.email",
+      "customer_id": "Form1.customer_id",
+      "seats": "Form1.seats",
+      "start_date": "Form1.start_date",
+      "country": "Form1.country",
+      "plan": "Form1.plan",
+      "notes": "Form1.notes",
+      "accept_terms": "Form1.accept_terms",
+      "newsletter": "Form1.newsletter",
+      "portal_password": "Form1.portal_password",
+      "comments": "Form1.comments"
+    },
+    "checks": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true,
+      "F8": true,
+      "F9": true,
+      "F10": false,
+      "F11": true,
+      "F12": true,
+      "F13": true,
+      "F14": true,
+      "F15": true,
+      "F16": true,
+      "F17": true
+    },
+    "score": 16,
+    "roundTripError": null
+  },
+  "jsreport": {
+    "fields": [
+      {
+        "name": "full_name",
+        "page": 1,
+        "rect": [
+          173,
+          669,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": true,
+        "readonly": false
+      },
+      {
+        "name": "email",
+        "page": 1,
+        "rect": [
+          173,
+          637,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "jane@example.com",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "customer_id",
+        "page": 1,
+        "rect": [
+          173,
+          604,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "C-1042",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": true
+      },
+      {
+        "name": "seats",
+        "page": 1,
+        "rect": [
+          173,
+          572,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "start_date",
+        "page": 1,
+        "rect": [
+          173,
+          540,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "country",
+        "page": 1,
+        "rect": [
+          173,
+          508,
+          370,
+          25
+        ],
+        "kind": "dropdown",
+        "options": [
+          "Greece",
+          "France",
+          "Germany",
+          "Spain",
+          "United Kingdom"
+        ],
+        "selected": [
+          "France"
+        ]
+      },
+      {
+        "name": "notes",
+        "page": 1,
+        "rect": [
+          173,
+          390,
+          370,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "accept_terms",
+        "page": 1,
+        "rect": [
+          51,
+          336,
+          12,
+          12
+        ],
+        "kind": "checkbox",
+        "checked": true
+      },
+      {
+        "name": "newsletter",
+        "page": 1,
+        "rect": [
+          51,
+          313,
+          12,
+          12
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "portal_password",
+        "page": 2,
+        "rect": [
+          173,
+          699,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "comments",
+        "page": 2,
+        "rect": [
+          173,
+          637,
+          370,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      }
+    ],
+    "matched": {
+      "full_name": "full_name",
+      "email": "email",
+      "customer_id": "customer_id",
+      "seats": "seats",
+      "start_date": "start_date",
+      "country": "country",
+      "notes": "notes",
+      "accept_terms": "accept_terms",
+      "newsletter": "newsletter",
+      "portal_password": "portal_password",
+      "comments": "comments"
+    },
+    "checks": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": false,
+      "F6": false,
+      "F7": true,
+      "F8": true,
+      "F9": true,
+      "F10": false,
+      "F11": true,
+      "F12": true,
+      "F13": true,
+      "F14": true,
+      "F15": true,
+      "F16": false,
+      "F17": true
+    },
+    "score": 13,
+    "roundTripError": null
+  },
+  "nutrient": {
+    "fields": [
+      {
+        "name": "full_name_full_name",
+        "page": 1,
+        "rect": [
+          173,
+          669,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "customer_id_customer_id",
+        "page": 1,
+        "rect": [
+          173,
+          602,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "C-1042",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "country_country",
+        "page": 1,
+        "rect": [
+          173,
+          501,
+          370,
+          23
+        ],
+        "kind": "dropdown",
+        "options": [
+          "United Kingdom",
+          "Spain",
+          "Germany",
+          "France",
+          "Greece"
+        ],
+        "selected": [
+          "France"
+        ]
+      },
+      {
+        "name": "id_88c3fa2388f25503dd20790d187d3c21_plan",
+        "page": 1,
+        "rect": [
+          85,
+          446,
+          10,
+          10
+        ],
+        "kind": "radio",
+        "options": [
+          "id_88c3fa2388f25503dd20790d187d3c21",
+          "id_c39b0711aa3dff314b2e80354441ca6f",
+          "id_2b7dd5c6b842e6bc2ca8f5de0302847b"
+        ],
+        "selected": "id_c39b0711aa3dff314b2e80354441ca6f",
+        "selectedIndex": 1,
+        "pages": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "accept_terms_accept_terms",
+        "page": 1,
+        "rect": [
+          54,
+          329,
+          10,
+          10
+        ],
+        "kind": "checkbox",
+        "checked": true
+      },
+      {
+        "name": "newsletter_newsletter",
+        "page": 1,
+        "rect": [
+          54,
+          306,
+          10,
+          10
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "portal_password_portal_password",
+        "page": 2,
+        "rect": [
+          173,
+          699,
+          370,
+          25
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      }
+    ],
+    "matched": {
+      "full_name": "full_name_full_name",
+      "customer_id": "customer_id_customer_id",
+      "country": "country_country",
+      "plan": "id_88c3fa2388f25503dd20790d187d3c21_plan",
+      "accept_terms": "accept_terms_accept_terms",
+      "newsletter": "newsletter_newsletter",
+      "portal_password": "portal_password_portal_password"
+    },
+    "checks": {
+      "F1": false,
+      "F2": false,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true,
+      "F8": true,
+      "F9": false,
+      "F10": false,
+      "F11": false,
+      "F12": false,
+      "F13": false,
+      "F14": true,
+      "F15": false,
+      "F16": false,
+      "F17": true
+    },
+    "score": 8,
+    "roundTripError": null
+  },
+  "pdfcrowd": {
+    "fields": [
+      {
+        "name": "full_name",
+        "page": 1,
+        "rect": [
+          173,
+          668,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": true,
+        "readonly": false
+      },
+      {
+        "name": "email",
+        "page": 1,
+        "rect": [
+          173,
+          634,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "jane@example.com",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "customer_id",
+        "page": 1,
+        "rect": [
+          173,
+          600,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "C-1042",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": true
+      },
+      {
+        "name": "seats",
+        "page": 1,
+        "rect": [
+          173,
+          566,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "start_date",
+        "page": 1,
+        "rect": [
+          173,
+          532,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "country",
+        "page": 1,
+        "rect": [
+          174,
+          501,
+          370,
+          23
+        ],
+        "kind": "dropdown",
+        "options": [
+          "Greece",
+          "France",
+          "Germany",
+          "Spain",
+          "United Kingdom"
+        ],
+        "selected": [
+          "fr"
+        ]
+      },
+      {
+        "name": "notes",
+        "page": 1,
+        "rect": [
+          173,
+          382,
+          371,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "accept_terms",
+        "page": 1,
+        "rect": [
+          54,
+          328,
+          10,
+          10
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "newsletter",
+        "page": 1,
+        "rect": [
+          54,
+          305,
+          10,
+          10
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "plan",
+        "page": 1,
+        "rect": [
+          85,
+          445,
+          10,
+          10
+        ],
+        "kind": "radio",
+        "options": [
+          "starter",
+          "pro",
+          "business"
+        ],
+        "selected": "pro",
+        "selectedIndex": 1,
+        "pages": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "portal_password",
+        "page": 2,
+        "rect": [
+          173,
+          697,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "comments",
+        "page": 2,
+        "rect": [
+          173,
+          635,
+          371,
+          54
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      }
+    ],
+    "matched": {
+      "full_name": "full_name",
+      "email": "email",
+      "customer_id": "customer_id",
+      "seats": "seats",
+      "start_date": "start_date",
+      "country": "country",
+      "plan": "plan",
+      "notes": "notes",
+      "accept_terms": "accept_terms",
+      "newsletter": "newsletter",
+      "portal_password": "portal_password",
+      "comments": "comments"
+    },
+    "checks": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true,
+      "F8": false,
+      "F9": true,
+      "F10": true,
+      "F11": true,
+      "F12": true,
+      "F13": true,
+      "F14": true,
+      "F15": true,
+      "F16": true,
+      "F17": true
+    },
+    "score": 16,
+    "roundTripError": null
+  },
+  "pdfgate": {
+    "fields": [
+      {
+        "name": "full_name",
+        "page": 1,
+        "rect": [
+          173,
+          667,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": true,
+        "readonly": false
+      },
+      {
+        "name": "email",
+        "page": 1,
+        "rect": [
+          173,
+          633,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "jane@example.com",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "customer_id",
+        "page": 1,
+        "rect": [
+          173,
+          599,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "C-1042",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": true
+      },
+      {
+        "name": "portal_password",
+        "page": 2,
+        "rect": [
+          173,
+          697,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "seats",
+        "page": 1,
+        "rect": [
+          173,
+          565,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "start_date",
+        "page": 1,
+        "rect": [
+          173,
+          530,
+          371,
+          27
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "plan",
+        "page": 1,
+        "rect": [
+          86,
+          444,
+          8,
+          8
+        ],
+        "kind": "radio",
+        "options": [
+          "starter",
+          "pro",
+          "business"
+        ],
+        "selected": "pro",
+        "selectedIndex": 1,
+        "pages": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "accept_terms",
+        "page": 1,
+        "rect": [
+          55,
+          327,
+          8,
+          8
+        ],
+        "kind": "checkbox",
+        "checked": true
+      },
+      {
+        "name": "newsletter",
+        "page": 1,
+        "rect": [
+          55,
+          304,
+          8,
+          8
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "notes",
+        "page": 1,
+        "rect": [
+          173,
+          380,
+          371,
+          53
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "comments",
+        "page": 2,
+        "rect": [
+          173,
+          635,
+          371,
+          53
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "country",
+        "page": 1,
+        "rect": [
+          173,
+          498,
+          371,
+          24
+        ],
+        "kind": "dropdown",
+        "options": [
+          "Greece",
+          "France",
+          "Germany",
+          "Spain",
+          "United Kingdom"
+        ],
+        "selected": [
+          "France"
+        ]
+      }
+    ],
+    "matched": {
+      "full_name": "full_name",
+      "email": "email",
+      "customer_id": "customer_id",
+      "seats": "seats",
+      "start_date": "start_date",
+      "country": "country",
+      "plan": "plan",
+      "notes": "notes",
+      "accept_terms": "accept_terms",
+      "newsletter": "newsletter",
+      "portal_password": "portal_password",
+      "comments": "comments"
+    },
+    "checks": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true,
+      "F8": true,
+      "F9": true,
+      "F10": true,
+      "F11": true,
+      "F12": true,
+      "F13": true,
+      "F14": true,
+      "F15": true,
+      "F16": true,
+      "F17": true
+    },
+    "score": 17,
+    "roundTripError": null
+  },
+  "pdfmonkey": {
+    "fields": [
+      {
+        "name": "fullname",
+        "page": 1,
+        "rect": [
+          169,
+          668,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": true,
+        "readonly": false
+      },
+      {
+        "name": "useremail",
+        "page": 1,
+        "rect": [
+          169,
+          635,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "customerid",
+        "page": 1,
+        "rect": [
+          169,
+          603,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": true
+      },
+      {
+        "name": "seats",
+        "page": 1,
+        "rect": [
+          169,
+          571,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "startdate",
+        "page": 1,
+        "rect": [
+          169,
+          539,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "country",
+        "page": 1,
+        "rect": [
+          169,
+          507,
+          371,
+          26
+        ],
+        "kind": "dropdown",
+        "options": [
+          "Greece",
+          "France",
+          "Germany",
+          "Spain",
+          "United Kingdom"
+        ],
+        "selected": []
+      },
+      {
+        "name": "plan",
+        "page": 1,
+        "rect": [
+          77,
+          458,
+          14,
+          14
+        ],
+        "kind": "radio",
+        "options": [
+          "starter",
+          "pro",
+          "business"
+        ],
+        "selectedIndex": -1,
+        "pages": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "name": "notes",
+        "page": 1,
+        "rect": [
+          169,
+          374,
+          371,
+          55
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "acceptterms",
+        "page": 1,
+        "rect": [
+          47,
+          340,
+          14,
+          14
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "newsletter",
+        "page": 1,
+        "rect": [
+          47,
+          317,
+          14,
+          14
+        ],
+        "kind": "checkbox",
+        "checked": false
+      },
+      {
+        "name": "portalpassword",
+        "page": 2,
+        "rect": [
+          169,
+          697,
+          371,
+          26
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": false,
+        "password": true,
+        "required": false,
+        "readonly": false
+      },
+      {
+        "name": "comments",
+        "page": 2,
+        "rect": [
+          169,
+          622,
+          371,
+          55
+        ],
+        "kind": "text",
+        "value": "",
+        "multiline": true,
+        "password": false,
+        "required": false,
+        "readonly": false
+      }
+    ],
+    "matched": {
+      "full_name": "fullname",
+      "email": "useremail",
+      "customer_id": "customerid",
+      "seats": "seats",
+      "start_date": "startdate",
+      "country": "country",
+      "plan": "plan",
+      "notes": "notes",
+      "accept_terms": "acceptterms",
+      "newsletter": "newsletter",
+      "portal_password": "portalpassword",
+      "comments": "comments"
+    },
+    "checks": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": false,
+      "F5": true,
+      "F6": false,
+      "F7": true,
+      "F8": false,
+      "F9": false,
+      "F10": false,
+      "F11": true,
+      "F12": true,
+      "F13": true,
+      "F14": true,
+      "F15": true,
+      "F16": true,
+      "F17": true
+    },
+    "score": 12,
+    "roundTripError": null
+  },
+  "puppeteer": {
+    "fields": [],
+    "matched": {},
+    "checks": {
+      "F1": false,
+      "F2": false,
+      "F3": false,
+      "F4": false,
+      "F5": false,
+      "F6": false,
+      "F7": false,
+      "F8": false,
+      "F9": false,
+      "F10": false,
+      "F11": false,
+      "F12": false,
+      "F13": false,
+      "F14": false,
+      "F15": false,
+      "F16": false,
+      "F17": false
+    },
+    "score": 0,
+    "roundTripError": null
+  }
+}

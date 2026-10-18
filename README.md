@@ -92,6 +92,21 @@ npm run bench -- pdfgate    # a single provider
 
 Results are written to `results/`. Check each provider's free allowance before running with `RUNS=5`. PDF.co, for example, charges 2 credits for every job status check, and the script checks every 0.5 seconds, so one PDF can use around 45 credits. To test your own document, replace `test-document.html` with your HTML.
 
+## Fillable fields benchmark
+
+A second test, in [`fillable-fields/`](fillable-fields/), sends one 2-page form with 12 controls to every API that can create fillable PDF fields and checks each output field by field with pdf-lib: types, names, defaults, pre-filled values, `required`/`readonly`, page placement and a fill-and-flatten round trip. Run on 17–18 October 2026.
+
+| API | How fields are created | HTML changes | Checks | Average time | Output |
+|---|---|---|---|---|---|
+| PDFGate | standard inputs | none | 17/17 | 1.6 s | [PDF](fillable-fields/results/pdfgate.pdf) |
+| PDFCrowd | standard inputs | none | 16/17 | 2.7 s | [PDF](fillable-fields/results/pdfcrowd.pdf) |
+| DocRaptor | Prince CSS rule | 3 lines | 16/17 | 2.2 s* | [PDF](fillable-fields/results/docraptor.pdf) |
+| jsreport online | template helpers | 37 lines | 13/17 | 0.6 s | [PDF](fillable-fields/results/jsreport.pdf) |
+| PDFMonkey | text markers | 41 lines | 12/17 | 7.2 s | [PDF](fillable-fields/results/pdfmonkey.pdf) |
+| Nutrient DWS | standard inputs | none | 8/17 | 1.1 s | [PDF](fillable-fields/results/nutrient.pdf) |
+
+*Timed in DocRaptor's free test mode. The full check matrix, what each API missed, and how to run it are in [`fillable-fields/README.md`](fillable-fields/README.md).
+
 ## Providers
 
 PDFGate, DocRaptor, PDF.co, PDFMonkey, Api2Pdf, ConvertAPI, CloudConvert, cloudlayer.io, PDFShift, PDFCrowd, Browserless and APITemplate.io.

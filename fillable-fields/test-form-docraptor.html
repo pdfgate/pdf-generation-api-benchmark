@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Fillable form test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4; margin: 20mm 18mm; }
+    :root { --brand: #4f46e5; --ink: #0f172a; --muted: #64748b; --line: #cbd5e1; }
+    * { box-sizing: border-box; }
+    body { font-family: Inter, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; margin: 0; }
+    h1 { font-weight: 800; font-size: 22pt; margin: 0 0 4px; letter-spacing: -0.02em; }
+    h2 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; color: var(--brand); }
+    p.intro { color: var(--muted); margin: 0 0 8px; }
+    .field-id { font-size: 7.5pt; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .row { display: flex; gap: 12px; margin-bottom: 10px; align-items: center; }
+    .row label.name { width: 150px; flex: none; }
+    .row input[type=text], .row input[type=email], .row input[type=number], .row input[type=date],
+    .row input[type=password], .row select, .row textarea {
+      flex: 1; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; font: inherit; background: #fff;
+    }
+    .row textarea { height: 72px; resize: none; }
+    .row input[readonly] { background: #f1f5f9; }
+    .choices { display: flex; gap: 20px; flex: 1; }
+    .choices label { display: flex; align-items: center; gap: 6px; }
+    .row.check label { display: flex; align-items: center; gap: 8px; width: auto; }
+
+    .page-break { break-before: page; page-break-before: always; }
+    .signature { margin-top: 28px; }
+    .signature .line { height: 48px; border: 1px solid var(--line); border-radius: 4px; width: 60%; }
+    .signature small { color: var(--muted); }
+
+    /* DocRaptor version: Prince creates PDF fields only when this rule is on the controls */
+    input, select, select option, textarea { -prince-pdf-form: enable; }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>Customer onboarding form</h1>
+    <p class="intro">Acme Ltd · Please complete every section. Fields marked * are required.</p>
+
+    <h2>1. Account</h2>
+    <div class="row">
+      <label class="name" for="full_name">Full name *</label>
+      <input type="text" id="full_name" name="full_name" required />
+    </div>
+    <div class="row">
+      <label class="name" for="email">Email</label>
+      <input type="email" id="email" name="email" value="jane@example.com" />
+    </div>
+    <div class="row">
+      <label class="name" for="customer_id">Customer ID</label>
+      <input type="text" id="customer_id" name="customer_id" value="C-1042" readonly />
+    </div>
+    <div class="row">
+      <label class="name" for="seats">Seats</label>
+      <input type="number" id="seats" name="seats" min="1" max="500" />
+    </div>
+    <div class="row">
+      <label class="name" for="start_date">Start date</label>
+      <input type="date" id="start_date" name="start_date" />
+    </div>
+    <div class="row">
+      <label class="name" for="country">Country</label>
+      <select id="country" name="country">
+        <option value="gr">Greece</option>
+        <option value="fr" selected>France</option>
+        <option value="de">Germany</option>
+        <option value="es">Spain</option>
+        <option value="uk">United Kingdom</option>
+      </select>
+    </div>
+
+    <h2>2. Plan</h2>
+    <div class="row">
+      <span class="name">Plan</span>
+      <div class="choices">
+        <label><input type="radio" name="plan" value="starter" /> Starter</label>
+        <label><input type="radio" name="plan" value="pro" checked /> Pro</label>
+        <label><input type="radio" name="plan" value="business" /> Business</label>
+      </div>
+    </div>
+    <div class="row">
+      <label class="name" for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
+    </div>
+
+    <h2>3. Agreements</h2>
+    <div class="row check">
+      <label><input type="checkbox" id="accept_terms" name="accept_terms" checked /> I accept the terms of service</label>
+    </div>
+    <div class="row check">
+      <label><input type="checkbox" id="newsletter" name="newsletter" /> Send me the monthly newsletter</label>
+    </div>
+
+    <h2 class="page-break">4. Customer portal</h2>
+    <p class="intro">Choose a password for the customer portal. It is stored only in this PDF.</p>
+    <div class="row">
+      <label class="name" for="portal_password">Portal password</label>
+      <input type="password" id="portal_password" name="portal_password" />
+    </div>
+    <div class="row">
+      <label class="name" for="comments">Comments</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+    </div>
+
+    <div class="signature">
+      <div class="line"></div>
+      <small>Signature (sign on paper after printing)</small>
+    </div>
+  </form>
+</body>
+</html>

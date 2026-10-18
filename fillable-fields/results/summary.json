@@ -1,0 +1,92 @@
+{
+  "pdfgate": {
+    "testedAt": "2026-10-17T14:55:07.594Z",
+    "sizeKB": 126,
+    "msAverage": 1581,
+    "msAll": [
+      1779,
+      1577,
+      1579,
+      1509,
+      1461
+    ],
+    "msAverageWithoutFields": 1316,
+    "msAllWithoutFields": [
+      1472,
+      1285,
+      1234,
+      1290,
+      1300
+    ]
+  },
+  "pdfcrowd": {
+    "testedAt": "2026-10-17T14:55:55.103Z",
+    "sizeKB": 149,
+    "msAverage": 2684,
+    "msAll": [
+      2917,
+      2920,
+      2457,
+      2890,
+      2234
+    ]
+  },
+  "nutrient": {
+    "testedAt": "2026-10-17T14:56:00.495Z",
+    "sizeKB": 91,
+    "msAverage": 1066,
+    "msAll": [
+      1533,
+      1580,
+      882,
+      720,
+      613
+    ]
+  },
+  "docraptor": {
+    "testedAt": "2026-10-18T06:00:30.069Z",
+    "sizeKB": 36,
+    "msAverage": 2165,
+    "msAll": [
+      2888,
+      1857,
+      2839,
+      1624,
+      1618
+    ],
+    "msProduction": 2482,
+    "note": "timed in free test mode; one production document for the output"
+  },
+  "puppeteer": {
+    "testedAt": "2026-10-16T06:30:00.144Z",
+    "sizeKB": 117,
+    "msAverage": 2743,
+    "msAll": [
+      2743
+    ]
+  },
+  "pdfmonkey": {
+    "testedAt": "2026-10-18T06:01:07.375Z",
+    "sizeKB": 81,
+    "msAverage": 7214,
+    "msAll": [
+      7726,
+      5114,
+      5355,
+      5121,
+      12756
+    ]
+  },
+  "jsreport": {
+    "testedAt": "2026-10-18T05:56:56.620Z",
+    "sizeKB": 33,
+    "msAverage": 634,
+    "msAll": [
+      1729,
+      489,
+      412,
+      272,
+      270
+    ]
+  }
+}
