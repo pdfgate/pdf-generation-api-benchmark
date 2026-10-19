@@ -91,9 +91,3 @@ cd fillable-fields && node verify.mjs                     # checks every PDF in 
 ```
 
 To test your own form, replace `test-form.html` and adjust `EXPECTED` in `verify.mjs` to describe it.
-
-## Not tested
-
-Anvil creates fields from standard inputs too, but its terms of service do not allow benchmarking against other products, so it is not included. Self-hosted libraries (wkhtmltopdf with `--enable-forms`, EVO, HiQPdf, SelectPdf) are outside the scope, which is hosted APIs.
-
-Found a result that looks wrong, or an option we should have set? Open an issue and we will rerun it.
