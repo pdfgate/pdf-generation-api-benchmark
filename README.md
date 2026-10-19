@@ -4,7 +4,7 @@ One HTML document, sent unchanged to 12 PDF generation APIs, scored on 14 render
 
 This repository holds everything needed to check or rerun the test: the test document, the script, and the PDF each provider returned.
 
-**Latest run:** 11–12 October 2026. Write-up: coming soon on HackerNoon.
+**Latest run:** 11–12 October 2026.
 
 ## Results
 
@@ -72,7 +72,7 @@ DocRaptor renders with Prince, a print engine rather than a browser, so the brow
 - Flexbox instead of CSS grid for the summary cards and the international text.
 - `-prince-pdf-form: enable` on `input`, `select` and `select option`, which Prince needs to create fillable fields.
 
-With the browser version, DocRaptor passed 9 of 14 checks. Writing a separate version is a real cost of using it, and the write-up counts it as one.
+With the browser version, DocRaptor passed 9 of 14 checks. Writing a separate version is a real cost of using it.
 
 PDFMonkey creates fillable fields only from its own markers, so it gets [`test-document-pdfmonkey.html`](test-document-pdfmonkey.html), where the three form inputs are replaced with `[% data_form_field_… %]` markers and the template's `use_forms` setting is on. The markers are set in tiny white Arial, because PDFMonkey did not detect them in Inter and leaves marker text visible outside the field.
 
